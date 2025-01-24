@@ -12,7 +12,7 @@ public class File {
 
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    private Long file_id;
+    private long file_id;
 
     @OneToOne
     @JoinColumn(name = "message_id")

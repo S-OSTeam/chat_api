@@ -12,14 +12,15 @@ public class ChatRoom {
 
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    private Long chat_id;
+    private long chat_id;
 
     private String chat_name;
 
-    private Long chat_people;
+    private long chat_people;
 
     //이 부분은 키로 연결할지 아니면 그냥 여기에 값을 넣어줄지
-    private Long user_id;
+    //방장 유저에 대한 정보임
+    private long user_id;
 
     private LocalDateTime deleted_at;
 }
