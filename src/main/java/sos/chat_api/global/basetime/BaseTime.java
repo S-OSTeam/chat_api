@@ -21,4 +21,5 @@ public class BaseTime {
     @LastModifiedDate
     @Column(name = "modified_at")
     private LocalDateTime modifiedAt;
+
 }
