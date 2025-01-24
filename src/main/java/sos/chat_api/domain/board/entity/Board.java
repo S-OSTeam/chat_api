@@ -37,4 +37,8 @@ public class Board {
 
     private Long recommend_bad;
 
+    private String image_url;
+
+    private String image_name;
+
 }
