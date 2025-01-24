@@ -1,9 +1,9 @@
 package sos.chat_api.domain.chat.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import sos.chat_api.domain.user.entity.User;
+
+import java.time.LocalDateTime;
 
 @Entity
 public class Message {
@@ -12,5 +12,17 @@ public class Message {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long message_id;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "chat_id")
+    private ChatRoom chatRoom;
+
+    private LocalDateTime deleted_at;
+
+    //이걸로 soft delete를 만듦
+    private Boolean deleted_ok = false;
 
 }

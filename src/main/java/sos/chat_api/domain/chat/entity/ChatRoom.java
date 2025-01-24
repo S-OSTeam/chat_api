@@ -5,6 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+import java.time.LocalDateTime;
+
 @Entity
 public class ChatRoom {
 
@@ -19,4 +21,5 @@ public class ChatRoom {
     //이 부분은 키로 연결할지 아니면 그냥 여기에 값을 넣어줄지
     private Long user_id;
 
+    private LocalDateTime deleted_at;
 }
