@@ -13,7 +13,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class User {
-
+    // push 용 주석
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long user_id;
