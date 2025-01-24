@@ -10,7 +10,7 @@ public class Message {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long message_id;
+    private Long message_id;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
