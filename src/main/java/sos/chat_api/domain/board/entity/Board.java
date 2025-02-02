@@ -1,5 +1,6 @@
 package sos.chat_api.domain.board.entity;
 
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,9 +9,10 @@ import sos.chat_api.domain.community.entity.Community;
 
 import java.time.LocalDateTime;
 
-@Entity
+
 @Getter
 @Setter
+@Entity
 public class Board {
 
     @Id
@@ -31,14 +33,33 @@ public class Board {
 
     private LocalDateTime deleted_at;
 
-    private Boolean deleted_ok;
+    private Boolean deleted_ok = false;
 
-    private Long recommend;
+    private Long recommend = 0L;
 
-    private Long recommend_bad;
+    private Long recommend_bad = 0L;
 
     private String image_url;
 
     private String image_name;
 
+    private Boolean softDelete(){
+         deleted_ok  = true;
+         return true;
+    }
+
+    //한 사람이 하나의 게시물에 recommend에 대해서 업하거나 내리거나만 가능하다.
+    //중복추천을 방지하기 위한 것을 만든다.
+
+    private Boolean plusRecommend(){
+        recommend += 1;
+        return true;
+    }
+
+    private Boolean minusRecommend(){
+        recommend -= 1;
+        if(recommend < 0)
+            return false;
+        return true;
+    }
 }
