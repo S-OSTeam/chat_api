@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 import sos.chat_api.domain.category.entity.Category;
 import sos.chat_api.domain.community.entity.Community;
+import sos.chat_api.domain.user.entity.User;
 
 import java.time.LocalDateTime;
 
@@ -26,6 +27,11 @@ public class Board {
     @ManyToOne
     @JoinColumn(name="category_id")
     private Category category;
+
+    @ManyToOne
+    @JoinColumn(name="user_id")
+    private User user;
+
 
     private String board_title;
 

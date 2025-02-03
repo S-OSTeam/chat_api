@@ -17,6 +17,7 @@ type Board{
     board_id: ID!
     category: Category!
     community: Community!
+    user: User!
     board_title: String!
     board_detail: String!
     deleted_at: String
