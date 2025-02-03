@@ -5,14 +5,23 @@ import sos.chat_api.domain.community.entity.Community;
 
 public class BoardDTO {
 
-    private Long community_id;
-    private Long category_id;
-    private Long user_id;
+    private Long communityId;
+    private Long categoryId;
+    private Long userId;
 
-    private String board_title;
+    private String boardTitle;
 
-    private String board_detail;
+    private String boardDetail;
 
-    private MultipartFile board_image;
+    private MultipartFile boardImage;
+
+    public BoardDTO(BoardInput input){
+        this.communityId = input.getCommunityId();
+        this.categoryId = input.getCategoryId();
+        this.userId = input.getUserId();
+        this.boardTitle = input.getBoardTitle();
+        this.boardDetail = input.getBoardDetail();
+        this.boardImage = input.getBoardImage();
+    }
 
 }
