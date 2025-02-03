@@ -1,9 +1,8 @@
 package sos.chat_api.domain.board.dto;
 
 import org.springframework.web.multipart.MultipartFile;
-import sos.chat_api.domain.community.entity.Community;
 
-public class BoardDTO {
+public class BoardInput {
 
     private Long community_id;
     private Long category_id;

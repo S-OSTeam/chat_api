@@ -47,4 +47,30 @@ type Comment{
     recommend_bad: Int
 }
 
+type BoardDTO{
+    community_id: ID!
+    category_id: ID!
+    user_id: ID!
+    board_title: String!
+    board_detail: String!
+
+}
+
+scalar Upload
+
+
+type Mutation {
+    uploadBoard(input: BoardInput!): String!
+}
+
+input BoardInput{
+    community_id: ID!
+    category_id: ID!
+    user_id: ID!
+    board_title: String!
+    board_detail: String!
+    board_image: Upload
+}
+
+
 
