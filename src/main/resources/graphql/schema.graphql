@@ -1,3 +1,5 @@
+scalar Upload
+
 type User{
     user_id: ID!
 }
@@ -53,14 +55,11 @@ type BoardDTO{
     user_id: ID!
     board_title: String!
     board_detail: String!
-
 }
-
-scalar Upload
 
 
 type Mutation {
-    uploadBoard(input: BoardInput!): String!
+    uploadBoard(input: BoardInput!): Board!
 }
 
 input BoardInput{
@@ -72,5 +71,21 @@ input BoardInput{
     boardImage: Upload
 }
 
+type Query{
+    getBoard(boardId: ID!): Board!
+}
+
+query{
+    getBoard(boardId: 1){
+        board_id
+        board_title
+        board_detail
+        image_url
+        image_name
+        user{
+            user_id
+        }
+    }
+}
 
 

@@ -3,6 +3,7 @@ package sos.chat_api.domain.board.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import sos.chat_api.domain.category.entity.Category;
 import sos.chat_api.domain.community.entity.Community;
@@ -14,6 +15,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity
+@NoArgsConstructor
 public class Board {
 
     @Id
@@ -67,5 +69,13 @@ public class Board {
         if(recommend < 0)
             return false;
         return true;
+    }
+
+    public Board(Community community, Category category, User user, String board_title, String board_detail) {
+        this.community = community;
+        this.category = category;
+        this.user = user;
+        this.board_title = board_title;
+        this.board_detail = board_detail;
     }
 }

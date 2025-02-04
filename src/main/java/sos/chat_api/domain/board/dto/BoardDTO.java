@@ -1,8 +1,12 @@
 package sos.chat_api.domain.board.dto;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.web.multipart.MultipartFile;
 import sos.chat_api.domain.community.entity.Community;
 
+@Getter
+@Setter
 public class BoardDTO {
 
     private Long communityId;
