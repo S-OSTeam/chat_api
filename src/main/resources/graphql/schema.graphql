@@ -64,7 +64,7 @@ input CommunityInput{
 
 
 type Mutation {
-    uploadBoard(input: BoardInput!): Board!
+    createBoard(input: BoardInput!): Board!
     createCategory(input: String! ): Category!
     createCommunity(input: CommunityInput!): Community!
 }

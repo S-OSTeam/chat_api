@@ -35,7 +35,6 @@ public class BoardService {
     private final BaseResponseServiceImpl baseResponseService;
 
     //글 작성
-    @MutationMapping
     public Board uploadBoard(@Argument BoardInput boardDTO) {
 
         Community community = communityRepository.findById(boardDTO.getCommunityId())
@@ -56,8 +55,7 @@ public class BoardService {
 
     //글 자세히 보기
     //pageAble로 잘라서 넣기
-    @QueryMapping
-    public Board getBoard(@Argument Long boardId){
+    public Board getBoardById(@Argument Long boardId){
         return boardRepository.findById(boardId).orElseThrow(()->new RuntimeException("Board not found"));
     }
 

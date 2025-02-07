@@ -1,6 +1,7 @@
 package sos.chat_api.domain.community.service;
 
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import sos.chat_api.domain.category.entity.Category;
 import sos.chat_api.domain.category.repository.CategoryRepository;
@@ -10,7 +11,7 @@ import sos.chat_api.domain.community.entity.Community;
 import sos.chat_api.domain.community.repository.CommunityRepository;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class CommunityService {
 
     private final CommunityRepository communityRepository;
