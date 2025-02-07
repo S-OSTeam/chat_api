@@ -1,13 +1,15 @@
 package sos.chat_api.domain.community.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import sos.chat_api.domain.category.entity.Category;
 
 @Entity
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Community {
 
     @Id
@@ -18,6 +20,6 @@ public class Community {
     @JoinColumn(name="category_id")
     private Category category;
 
-    private String community_name;
+    private String name;
 
 }
