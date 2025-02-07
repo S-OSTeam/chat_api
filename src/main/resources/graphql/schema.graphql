@@ -87,24 +87,5 @@ type Query{
 }
 
 
-#query{
-#    getCategory(categoryId: 1){
-#        category_id
-#        category_name
-#    }
-#}
-#
-#query{
-#    getBoard(boardId: 1){
-#        board_id
-#        board_title
-#        board_detail
-#        image_url
-#        image_name
-#        user{
-#            user_id
-#        }
-#    }
-#}
 
 
