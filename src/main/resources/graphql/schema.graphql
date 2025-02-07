@@ -57,9 +57,16 @@ type BoardDTO{
     board_detail: String!
 }
 
+input CommunityInput{
+    name: String!
+    category_id: ID!
+}
+
 
 type Mutation {
     uploadBoard(input: BoardInput!): Board!
+    createCategory(input: String! ): Category!
+    createCommunity(input: CommunityInput!): Community!
 }
 
 input BoardInput{
@@ -71,21 +78,33 @@ input BoardInput{
     boardImage: Upload
 }
 
+
+
 type Query{
     getBoard(boardId: ID!): Board!
+    getCategory(categoryId: ID!): Category!
+    getCommunity(communityId: ID!): Community!
 }
 
-query{
-    getBoard(boardId: 1){
-        board_id
-        board_title
-        board_detail
-        image_url
-        image_name
-        user{
-            user_id
-        }
-    }
-}
+
+#query{
+#    getCategory(categoryId: 1){
+#        category_id
+#        category_name
+#    }
+#}
+#
+#query{
+#    getBoard(boardId: 1){
+#        board_id
+#        board_title
+#        board_detail
+#        image_url
+#        image_name
+#        user{
+#            user_id
+#        }
+#    }
+#}
 
 
