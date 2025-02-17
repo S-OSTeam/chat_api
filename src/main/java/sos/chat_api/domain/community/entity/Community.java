@@ -14,7 +14,7 @@ public class Community {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long community_id;
+    private Long communityId;
 
     @ManyToOne
     @JoinColumn(name="category_id")

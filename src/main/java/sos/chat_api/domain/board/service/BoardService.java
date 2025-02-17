@@ -33,7 +33,7 @@ public class BoardService {
     private final CategoryRepository categoryRepository;
     private final UserRepository userRepository;
     private final AwsFileService awsFileService;
-    private final BaseResponseServiceImpl baseResponseService;
+//    private final BaseResponseServiceImpl baseResponseService;
 
     //글 작성
     public Board uploadBoard(@Argument BoardInput boardDTO) {
@@ -48,7 +48,7 @@ public class BoardService {
                 .orElseThrow(()->new RuntimeException("User not found"));
 
         Board board;
-        if(!boardDTO.getBoardImage().isEmpty()) {
+        if(boardDTO.getBoardImage()!=null) {
                 String imageUrl = awsFileService.upload(boardDTO.getBoardImage());
                 board = new Board(community,category,userEntity,boardDTO.getBoardTitle(),boardDTO.getBoardDetail());
                 board.setImage_url(imageUrl);

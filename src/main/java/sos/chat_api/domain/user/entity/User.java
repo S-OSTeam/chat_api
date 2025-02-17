@@ -16,4 +16,9 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long user_id;
 
+    //생성자에는 이렇게 return 값이 붙지 않는다.
+    public User(Long user_id) {
+        this.user_id = user_id;
+    }
+
 }

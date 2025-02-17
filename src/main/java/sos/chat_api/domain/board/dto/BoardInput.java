@@ -1,7 +1,15 @@
 package sos.chat_api.domain.board.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.web.multipart.MultipartFile;
 
+@NoArgsConstructor
+@AllArgsConstructor
+@Setter
+@Getter
 public class BoardInput {
 
     private Long communityId;
