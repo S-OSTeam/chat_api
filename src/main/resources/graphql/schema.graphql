@@ -62,13 +62,6 @@ input CommunityInput{
     category_id: ID!
 }
 
-
-type Mutation {
-    createBoard(input: BoardInput!): Board!
-    createCategory(input: String! ): Category!
-    createCommunity(input: CommunityInput!): Community!
-}
-
 input BoardInput{
     communityId: ID!
     categoryId: ID!
@@ -78,12 +71,26 @@ input BoardInput{
     boardImage: Upload
 }
 
+input CommentInput{
+    boardId : ID!
+    comment_detail: String!
+    commentImage: Upload
+}
+
+type Mutation {
+    createBoard(input: BoardInput!): Board!
+    createCategory(input: String! ): Category!
+    createCommunity(input: CommunityInput!): Community!
+    creatComment(input: CommentInput!): Comment!
+}
+
 
 
 type Query{
     getBoard(boardId: ID!): Board!
     getCategory(categoryId: ID!): Category!
     getCommunity(communityId: ID!): Community!
+    getComment(commentId: ID!) : Comment!
 }
 
 

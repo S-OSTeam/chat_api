@@ -1,17 +1,20 @@
 package sos.chat_api.domain.comment.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import sos.chat_api.domain.board.entity.Board;
 import sos.chat_api.domain.category.entity.Category;
 import sos.chat_api.domain.community.entity.Community;
+import sos.chat_api.domain.user.entity.User;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Comment {
 
     @Id
@@ -29,6 +32,10 @@ public class Comment {
     @ManyToOne
     @JoinColumn(name="category_id")
     private Category category;
+
+    @ManyToOne
+    @JoinColumn(name="user_id")
+    private User user;
 
     private String comment_detail;
 
