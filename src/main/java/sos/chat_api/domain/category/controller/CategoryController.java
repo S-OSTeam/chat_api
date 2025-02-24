@@ -1,10 +1,12 @@
 package sos.chat_api.domain.category.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
+import sos.chat_api.domain.category.CategoryDTO;
 import sos.chat_api.domain.category.entity.Category;
 import sos.chat_api.domain.category.service.CategoryService;
 
@@ -23,5 +25,28 @@ public class CategoryController {
     @MutationMapping
     public Category createCategory(@Argument String name) {
         return categoryService.uploadCategory(name);
+    }
+
+    //카테고리 삭제
+    @MutationMapping
+    public Boolean deleteCategory(@Argument long categoryId) {
+        return categoryService.deleteCategory(categoryId);
+    }
+
+    @MutationMapping
+    public Category updateCategory(@Argument long categoryId, @Argument String name) {
+        return categoryService.updateCategory(categoryId, name);
+    }
+
+    @QueryMapping
+    public CategoryDTO getCategories(@Argument int page, @Argument int size) {
+        Page<Category> categoryPage = categoryService.getAllCategories(page,size);
+        return new CategoryDTO(
+                categoryPage.getContent(),
+                categoryPage.getTotalPages(),
+                categoryPage.getTotalElements(),
+                categoryPage.getSize(),
+                categoryPage.getNumber()
+        );
     }
 }
