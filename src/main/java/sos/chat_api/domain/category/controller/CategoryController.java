@@ -6,7 +6,7 @@ import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
-import sos.chat_api.domain.category.CategoryDTO;
+import sos.chat_api.domain.category.entity.CategoryDTO;
 import sos.chat_api.domain.category.entity.Category;
 import sos.chat_api.domain.category.service.CategoryService;
 

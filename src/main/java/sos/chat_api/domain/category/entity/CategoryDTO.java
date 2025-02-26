@@ -1,9 +1,7 @@
-package sos.chat_api.domain.category;
+package sos.chat_api.domain.category.entity;
 
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import sos.chat_api.domain.category.entity.Category;
 
 import java.util.List;
 

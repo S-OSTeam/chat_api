@@ -2,6 +2,9 @@ package sos.chat_api.domain.community.service;
 
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import sos.chat_api.domain.category.entity.Category;
 import sos.chat_api.domain.category.repository.CategoryRepository;
@@ -38,5 +41,29 @@ public class CommunityService {
 
         return communityRepository.save(community);
     }
+    //커뮤니티 삭제
+    public Boolean deleteCommunity(long communityId){
+        if(!communityRepository.existsById(communityId)){
+//            throw new IllegalArgumentException("존재하지 않는 커뮤니티입니다.");
+            return false;
+        }
+        categoryRepository.deleteById(communityId);
+        return true;
+    }
+
+    //커뮤니티 업데이트
+    public Community updateCommunity(Long communityId, String name){
+        Community community = communityRepository.findById(communityId)
+                .orElseThrow(()->new RuntimeException("존재하지 않는 커뮤니티입니다."));
+        community.setName(name);
+        return communityRepository.save(community);
+    }
+
+    //커뮤니티 pageable로 제공
+    public Page<Community> getAllCommunities(int page, int size){
+        PageRequest pageRequest = PageRequest.of(page, size);
+        return communityRepository.findAll(pageRequest);
+    }
+
 
 }

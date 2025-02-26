@@ -40,14 +40,15 @@ public class CategoryService {
     //카테고리 삭제하기
     public boolean deleteCategory(long categoryId) {
         if(!categoryRepository.existsById(categoryId)) {
-            throw new IllegalArgumentException("존재하지 않는 카테고리입니다.");
+//            throw new IllegalArgumentException("존재하지 않는 카테고리입니다.");
+            return false;
         }
         categoryRepository.deleteById(categoryId);
         return true;
     }
 
-
-    public Category updateCategory(long categoryId,String name){
+    //카테고리 업데이트
+    public Category updateCategory(Long categoryId,String name){
         Category category = categoryRepository.findById(categoryId)
                 .orElseThrow(()->new IllegalArgumentException("존재하지 않는 카테고리입니다"));
         category.setName(name);
