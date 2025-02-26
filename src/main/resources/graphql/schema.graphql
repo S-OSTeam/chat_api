@@ -122,6 +122,7 @@ type Mutation {
     deleteBoard(boardId : ID!) : Boolean!
     updateBoard(input : BoardUpdateDTO!) : Board!
     creatComment(input: CommentInput!): Comment!
+
 }
 
 

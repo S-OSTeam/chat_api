@@ -22,6 +22,7 @@ public class CommentService {
     private final BoardRepository boardRepository;
     private final UserRepository userRepository;
     private final AwsFileService awsFileService;
+
     //댓글 이름 찾기
     public Comment findByCommentId(long commentId) {
         return commentRepository.findById(commentId).
@@ -63,6 +64,8 @@ public class CommentService {
         }
         return commentRepository.save(comment);
     }
+
+    //댓글 수정
 
 
 }
