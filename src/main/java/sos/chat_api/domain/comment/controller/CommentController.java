@@ -6,7 +6,7 @@ import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 import sos.chat_api.domain.comment.entity.Comment;
-import sos.chat_api.domain.comment.entity.CommentInput;
+import sos.chat_api.domain.comment.dto.CommentInput;
 import sos.chat_api.domain.comment.service.CommentService;
 
 @Controller

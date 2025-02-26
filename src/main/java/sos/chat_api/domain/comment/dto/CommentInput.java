@@ -1,4 +1,4 @@
-package sos.chat_api.domain.comment.entity;
+package sos.chat_api.domain.comment.dto;
 
 import lombok.Getter;
 import org.springframework.web.multipart.MultipartFile;

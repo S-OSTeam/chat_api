@@ -7,9 +7,8 @@ import sos.chat_api.domain.board.entity.Board;
 import sos.chat_api.domain.board.repository.BoardRepository;
 import sos.chat_api.domain.category.entity.Category;
 import sos.chat_api.domain.comment.entity.Comment;
-import sos.chat_api.domain.comment.entity.CommentInput;
+import sos.chat_api.domain.comment.dto.CommentInput;
 import sos.chat_api.domain.comment.repository.CommentRepository;
-import sos.chat_api.domain.community.dto.CommunityInput;
 import sos.chat_api.domain.community.entity.Community;
 import sos.chat_api.domain.s3code.AwsFileService;
 import sos.chat_api.domain.user.entity.User;
@@ -31,6 +30,7 @@ public class CommentService {
 
     //댓글 달기
     public Comment uploadComment(CommentInput commentInput){
+
 
         Board board = boardRepository.findById(commentInput.getBoardId())
                 .orElseThrow(()->new RuntimeException("Board not found"));
@@ -65,6 +65,24 @@ public class CommentService {
         return commentRepository.save(comment);
     }
 
+
+    //댓글 삭제
+    public Boolean deleteComment(Long userId,Long commentId){
+        if(!commentRepository.existsById(commentId)){
+            throw new IllegalArgumentException("해당 댓글이 없습니다.");
+        }
+
+        User user = userRepository.findById(userId)
+                .orElseThrow(()->new IllegalArgumentException("유저를 찾을 수 없습니다."));
+
+        Comment comment = findByCommentId(commentId);
+        if(comment.getUser().equals(user)){
+            commentRepository.delete(comment);
+            return true;
+        }else{
+            return false;
+        }
+    }
     //댓글 수정
 
 
