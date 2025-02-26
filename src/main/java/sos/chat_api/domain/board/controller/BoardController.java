@@ -19,7 +19,6 @@ import sos.chat_api.domain.board.service.BoardService;
 public class BoardController {
 
     private final BoardService boardService;
-    private final BoardRepository boardRepository;
 
     //글작성
     @MutationMapping
