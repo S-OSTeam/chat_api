@@ -16,12 +16,12 @@ public class CategoryController {
     private final CategoryService categoryService;
 
     //에러 캐치하는 코드 작성해야 한다.
-
+    //카테고리 한 개 불러오기
     @QueryMapping
     public Category getCategory(@Argument long categoryId) {
         return categoryService.findByCategoryId(categoryId);
     }
-
+    //카테고리 생성
     @MutationMapping
     public Category createCategory(@Argument String name) {
         return categoryService.uploadCategory(name);
@@ -32,12 +32,12 @@ public class CategoryController {
     public Boolean deleteCategory(@Argument long categoryId) {
         return categoryService.deleteCategory(categoryId);
     }
-
+    //카테고리 수정
     @MutationMapping
     public Category updateCategory(@Argument long categoryId, @Argument String name) {
         return categoryService.updateCategory(categoryId, name);
     }
-
+    //카테고리 잘라서 가져오기
     @QueryMapping
     public CategoryDTO getCategories(@Argument int page, @Argument int size) {
         Page<Category> categoryPage = categoryService.getAllCategories(page,size);
