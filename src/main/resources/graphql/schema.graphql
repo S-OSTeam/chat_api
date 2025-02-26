@@ -73,6 +73,14 @@ type CommunityDTO{
     number : Int!
 }
 
+type BoardReturn{
+    content : [Board!]!
+    totalPages : Int!
+    totalElements : Int!
+    size : Int!
+    number : Int!
+}
+
 input CommunityInput{
     name: String!
     category_id: ID!
@@ -94,6 +102,14 @@ input CommentInput{
 }
 
 
+input BoardUpdateDTO{
+    boardId : ID!
+    userId : ID!
+    boardTitle : String!
+    boardDetail : String!
+    boardImage : Upload
+}
+
 
 type Mutation {
     createCategory(input: String! ): Category!
@@ -103,7 +119,8 @@ type Mutation {
     deleteCommunity(communityId : ID!): Boolean!
     updateCommunity(communityId : ID!, name : String!) : Community!
     createBoard(input: BoardInput!): Board!
-
+    deleteBoard(boardId : ID!) : Boolean!
+    updateBoard(input : BoardUpdateDTO!) : Board!
     creatComment(input: CommentInput!): Comment!
 }
 
@@ -116,6 +133,7 @@ type Query{
     getComment(commentId: ID!) : Comment!
     getCategories(page: Int!, size: Int!) : CategoryDTO!
     getCommunities(page: Int!, size: Int!) : CommunityDTO!
+    getBoards(communityId: ID!, categoryId: ID!,page : Int!, size : Int!) : BoardReturn!
 }
 
 
